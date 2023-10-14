@@ -3,6 +3,7 @@
 
 $(function() {
 	let audio = document.getElementById('contiOnAudio');
+	audio.volume = 0.5;
 	let cv = window.cv;
 	let overthat;
 	const screenVideo = document.getElementById('screen');
@@ -113,7 +114,7 @@ $(function() {
 			
 			$("#contiText").text("컨티 발동됨 [ 재사용 대기시간 12초 ]");
 			audio.play();
-			audio.volume = 0.5;
+			
 			
 		} else {
 			startCk = false;
