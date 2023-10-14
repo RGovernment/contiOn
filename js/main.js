@@ -100,6 +100,7 @@ $(function() {
 			startCk = false;
 			contiAlram.src = "img/contiOff.png";
 			$("#contiText").text("컨티 발동 가능");
+			$("#contiText").css("fontSize","50px");
 			if(lastCk){
 				audio2.play()
 			}
