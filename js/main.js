@@ -13,8 +13,6 @@ $(function() {
 	const ctx = canvas.getContext('2d');
 	ctx.willReadFrequently = true;
 	let ctx2;
-	const templateImage = new Image();
-	templateImage.src = '/img/contiSoon.png';
 	let imageData;
 	let referenceImageData;
 	let count = 0;
@@ -106,7 +104,7 @@ $(function() {
 
 		if (resultTime.maxVal < 0.60) {
 			startCk = false;
-			contiAlram.src = "/img/contiOff.png";
+			contiAlram.src = "img/contiOff.png";
 			$("#contiText").text("컨티 발동 가능");
 			
 		} else if (resultTime.maxVal > 0.95) {
@@ -127,7 +125,7 @@ $(function() {
 			}
 
 			$("#contiText").text("컨티 발동됨 [ 재사용 대기시간 " + timeView + "초 ]");
-			contiAlram.src = "/img/contiSoon.png";
+			contiAlram.src = "img/contiSoon.png";
 		}
 
 		resultMat.delete(); templetImage.delete(); targetImage.delete();
