@@ -4,8 +4,8 @@
 $(function() {
 	let audio = document.getElementById('contiOnAudio');
 	let audio2 = document.getElementById('contiReadyAudio');
-	audio.volume = 0.5;
-	audio2.volume = 0.5;
+//	audio.volume = 0.5;
+//	audio2.volume = 0.5;
 	let cv = window.cv;
 	let overthat;
 	const screenVideo = document.getElementById('screen');
@@ -17,7 +17,6 @@ $(function() {
 	ctx.willReadFrequently = true;
 	let ctx2;
 	let imageData;
-	let referenceImageData;
 	let count = 0;
 	let lastCk = true;
 	let startCk = true;
@@ -46,18 +45,6 @@ $(function() {
 		// 캔버스에서 이미지 데이터를 가져옵니다.
 		imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-		// 이미지 로딩 후 데이터를 가져오기 위한 Promise 반환
-		referenceImageData = new Promise((resolve) => {
-			canvas2.width = contiImg.width;
-			canvas2.height = contiImg.height;
-			ctx2 = canvas2.getContext('2d');
-			ctx2.willReadFrequently = true;
-			ctx2.drawImage(contiImg, 0, 0, contiImg.width, contiImg.height);
-
-			// 이미지 데이터를 반환 
-			resolve(ctx2.getImageData(0, 0, contiImg.width, contiImg.height));
-		});
-		
 		overCk();
 		
 		screenVideo.requestVideoFrameCallback(captureImage);
