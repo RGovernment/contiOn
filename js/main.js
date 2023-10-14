@@ -3,6 +3,7 @@
 
 $(function() {
 	let audio = document.getElementById('contiOnAudio');
+	let audio2 = document.getElementById('contiReadyAudio');
 	audio.volume = 0.5;
 	let cv = window.cv;
 	let overthat;
@@ -17,7 +18,7 @@ $(function() {
 	let imageData;
 	let referenceImageData;
 	let count = 0;
-	let lastCk = false;
+	let lastCk = true;
 	let startCk = true;
 	let num = 11;
 	let interval = 1000;
@@ -107,7 +108,10 @@ $(function() {
 			startCk = false;
 			contiAlram.src = "img/contiOff.png";
 			$("#contiText").text("컨티 발동 가능");
-			
+			if(lastCk){
+				audio2.play()
+			}
+			lastCk = false;
 		} else if (resultTime.maxVal > 0.95) {
 			startCk = true;
 			num = 11;
@@ -124,7 +128,7 @@ $(function() {
 			}else{
 				timeView = (Math.round(num * 10) / 10);	
 			}
-
+			lastCk = true;
 			$("#contiText").text("컨티 발동됨 [ 재사용 대기시간 " + timeView + "초 ]");
 			contiAlram.src = "img/contiSoon.png";
 		}
