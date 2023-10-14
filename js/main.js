@@ -5,6 +5,7 @@ $(function() {
 	let audio = document.getElementById('contiOnAudio');
 	let audio2 = document.getElementById('contiReadyAudio');
 	audio.volume = 0.5;
+	audio2.volume = 0.5;
 	let cv = window.cv;
 	let overthat;
 	const screenVideo = document.getElementById('screen');
@@ -21,10 +22,6 @@ $(function() {
 	let lastCk = true;
 	let startCk = true;
 	let num = 11;
-	let interval = 1000;
-	let start = Date.now();
-	let expected = Date.now() + interval;
-	let videoFrameCount = 0;
 	let captureNow;
 	let captureEnd;
 	let captureRange;
@@ -60,10 +57,9 @@ $(function() {
 			// 이미지 데이터를 반환 
 			resolve(ctx2.getImageData(0, 0, contiImg.width, contiImg.height));
 		});
-
-
+		
 		overCk();
-
+		
 		screenVideo.requestVideoFrameCallback(captureImage);
 
 		captureEnd = performance.now();
@@ -71,8 +67,6 @@ $(function() {
 		num = num - captureRange/1000;
 	}
 
-
-	
 	let netCap = () => {
 		// 화면 공유 요청
 		navigator.mediaDevices.getDisplayMedia({ video: true })
@@ -87,9 +81,7 @@ $(function() {
 		videoFrameCount++;
 		
 	}
-
-
-
+	
 	let overCk = () => {
 
 		const targetImage = cv.imread(canvas);
@@ -117,6 +109,7 @@ $(function() {
 			num = 11;
 			
 			$("#contiText").text("컨티 발동됨 [ 재사용 대기시간 12초 ]");
+			$("#contiText").css("fontSize","40px;");
 			audio.play();
 			
 			
@@ -130,6 +123,7 @@ $(function() {
 			}
 			lastCk = true;
 			$("#contiText").text("컨티 발동됨 [ 재사용 대기시간 " + timeView + "초 ]");
+			$("#contiText").css("fontSize","40px;");
 			contiAlram.src = "img/contiSoon.png";
 		}
 
