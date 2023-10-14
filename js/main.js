@@ -109,7 +109,7 @@ $(function() {
 			num = 11;
 			
 			$("#contiText").text("컨티 발동됨 [ 재사용 대기시간 12초 ]");
-			$("#contiText").css("fontSize","40px;");
+			$("#contiText").css("fontSize","35px");
 			audio.play();
 			
 			
@@ -123,7 +123,7 @@ $(function() {
 			}
 			lastCk = true;
 			$("#contiText").text("컨티 발동됨 [ 재사용 대기시간 " + timeView + "초 ]");
-			$("#contiText").css("fontSize","40px");
+			$("#contiText").css("fontSize","35px");
 			contiAlram.src = "img/contiSoon.png";
 		}
 
