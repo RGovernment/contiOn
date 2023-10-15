@@ -81,7 +81,6 @@ $(function() {
 		// 매칭 결과를 조사하여 일치하는 패턴 위치 확인
 		const matchLoc = new cv.Mat();
 		let resultTime = cv.minMaxLoc(resultMat, matchLoc);
-		console.log("maxVal::" + resultTime.maxVal);
 
 		if (resultTime.maxVal < 0.60) {
 			startCk = false;
