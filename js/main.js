@@ -64,9 +64,7 @@ $(function() {
 				console.error('화면 공유를 시작할 수 없습니다: ' + error);
 			});
 
-		screenVideo.requestVideoFrameCallback(captureImage);
-		videoFrameCount++;
-		
+		screenVideo.requestVideoFrameCallback(captureImage);		
 	}
 	
 	let overCk = () => {
